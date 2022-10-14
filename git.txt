@@ -1,0 +1,215 @@
+some basic command of git
+git config --global user.name "urvish sojitra"
+
+git config --global user.email "sojitraurvish0@gmail.com"
+
+$ git config user.email
+sojitraurvish0@gmail.com
+
+$ git config user.name
+urvish sojitra
+
+$ git config --list
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=openssl
+http.sslcainfo=C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+pull.rebase=false
+credential.helper=manager-core
+credential.https://dev.azure.com.usehttppath=true
+init.defaultbranch=master
+user.name=urvish sojitra
+user.email=sojitraurvish0@gmail.com
+uesr.email=sojitraurvish0@gmail.com
+alias.st=status
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.symlinks=false
+core.ignorecase=true
+remote.urvish.url=https://github.com/sojitraurvish/git-tutorial-demo.git
+remote.urvish.fetch=+refs/heads/*:refs/remotes/urvish/*
+branch.main.remote=urvish
+branch.main.merge=refs/heads/main
+branch.develop.remote=urvish
+branch.develop.merge=refs/heads/develop
+
+--------------------------------------------------------------------
+// How git control versions 
+-> it store all the changes to of the software inti .git file like database 
+
+$ rm -rf .git //to vanish .git file form repository therefore repository also get delete
+
+urvish@DESKTOP-RQLGPQ6 MINGW64 ~/Desktop/git
+$ git status
+fatal: not a git repository (or any of the parent directories): .git
+
+$ git init // To initialize brand new git repository or it create .git file
+Initialized empty Git repository in C:/Users/urvish/Desktop/git/.git/
+
+++++++++++++++++++++++++++++++
+if you want the file which should not go into tracking system so create .gitignore file and put that file name inside it.
+.gitignore
+
+error.log
+*.log	 	
+dir/ -> meant all the directory whether sub directories or not 
+/dir/ -> meant all directory of main directory
+static/dir/
+
+++++++++++++++++++++++++++++++
+//git file system                                            (tracking system)
+working directory(file not tracking)      ->     (unmodified files)     (modifided files)        ->       (staging area)      ->  (commit area)
+
+$ git add --a // This is used to run two different times 
+// First 
+-> To add files from working directory to git tracking system 
+(while doing it do both thing it track it and put inside staging area)
+
+// Second -> but when you changes file after tracking so it will be modified. 
+So, to make it unmodified and put it into inside staging area.
+
+$ git commit -m "Initial commit" 
+// To commit or (final screen short) from staging area and again put it into unchanged area.
+
+$ git log
+// To see past commits
+
+$ git clone <path of git repo from github path>
+// To clone or copy repository.
+
+$ touch .gitignore 
+// Touch and nano are text editor .
+
+$ git diff
+// Give difference between staging area and working directory.
+
+$ git diff --staged 
+// Give difference between last commit and staging area. 
+
+$ git commit -am "commit"
+// If we have putted our all file into tacking area then we directly use this command to commit it rather than putting into staging area
+
+rm -rf <file> only remove file and after you have to stage it manually
+git rm -rf <file> remove file as well as stage it
+
+$ git rm --cached <filename>
+// To remove file from tracking area
+
+$ gir restore <filename>
+(use "git restore <file>..." to discard changes in working directory)
+
+$ git restore --staged
+ (use "git restore --staged <file>..." to unstage)
+
+$ git checkout <file name of (-f for all)> // NOTE :- This command do not work with .gitignore file
+// This command this file from list commit  
+
+other git command to see git commit logs
+
+--------------------------------------------------------------------
+Work with git hub
+
+git remote
+git remote add <urvish> https://github.com/sojitraurvish/codewithurvish.git
+git remote -v
+
+//to genrate ssh key 
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+ssh-keygen -t ed25519 -C "your_email@example.com"'
+
+# start the ssh-agent in the background
+$ eval "$(ssh-agent -s)"
+> Agent pid 59566
+
+
+//add shh key into the ssh agent
+ssh-add ~/.ssh/id_ed25519
+
+//to see ssh public key and add it to git hub ssh key to get push npush permition
+tail ~/.ssh/id_ed25519.pub
+
+//to see ssh private key
+tail ~/.ssh/id_ed25519
+
+//to rename master branch from <master> to <main>
+git branch -M main
+
+git push -u urvish main
+
+------------------------------------------------------------------------
+// (optional) use this alias when you have some commad for repitative time
+//how to use alias / so,that we can store big command into some kind of variable and then reuse it
+git config --global alias.st status
+
+//to execute it 
+git st
+
+git config --global alias.unstage "restore --staged --" this ( -- ) will be replace by file name
+
+git unstage this.txt
+-------------------------------------------------------------------------
+
+//tutorial 15 switching branches
+
+
+Note:- while switching branch please do not forgot to go commiting
+
+//this command create new branch and aapko vahape le jaye ga
+git checkout -b develop 
+
+//to switch branch
+git checkout main
+
+//to see all branch
+git branch
+
+// to see last commit of all branch
+git branch
+
+// to see marged branches
+git branch -merged
+
+// to see branches which are not merged 
+git branch --no-merged
+
+//how to delete branch
+git branch -d <name of branch> ==> gives error if branch is not marged
+git branch -D <name of branch> ==> no error and branch gets deleted
+
+// Merging
+// First goto main or master branch
+// To marge branch
+$ git merge <branch name>  
+
+//if marge confilct accure so visul studo provide facility to accept changes
+
+// inorder to marge it do commit 
+
+if you want to write commit maually so write this command 
+
+git commit 
+
+for exit press Esc and :wq 
+
+
+//when marge confict accure remove any one fom both of them
+
+and run this command for mark resolution or confic resoution
+Unmerged paths:
+(use "git add <file> to mark resolution)
+
+and then commit it to marge branch
+git commit -m "marged issue 1"
+
+
+
+

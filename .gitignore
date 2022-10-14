@@ -1,0 +1,14 @@
+error.log
+*.log	 	
+dir/
+/dir/
+static/dir/
+
+
+
+# error.log
+# *.log
+# dir/
+# /dir/
+# static/dir/
+
