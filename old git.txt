@@ -1,29 +1,3 @@
-git is version control system
-
-* how git is helpful for programers
-easy to recover file
-who introduced an issue and when
-rollback to go previously working state
-
-earlier there was (local version control system)-> (here we are not connected with internet all the changes are in our machine or computer)
-local vcs pros -> can track file
-	  cons -> if you lose hardisk , then everything get lose
-
-then (centralized vcs) came-> every thing is pushed on 1 centralized server
-	but what if sever get demaged
-
-then (distributed vcs) came into the picture where there is one centralize sever and every one is doing pull and push so if server get 
-demaged then other person having backup because everyone is doing pull and push
-
-git capture snapshort
-so when you create git repo it create .git file that contain the history of our entire project
-
-with the help of .git folder you can go to the f1 f2 f3 version of your software
-
-remote repo mean it hosted on internet
-git has integrity
-
-
 some basic command of git
 git config --global user.name "urvish sojitra"
 
@@ -81,7 +55,6 @@ $ git init // To initialize brand new git repository or it create .git file
 Initialized empty Git repository in C:/Users/urvish/Desktop/git/.git/
 
 ++++++++++++++++++++++++++++++
-touch error.log // in order to create new file
 if you want the file which should not go into tracking system so create .gitignore file and put that file name inside it.
 .gitignore
 
@@ -123,57 +96,26 @@ $ git diff --staged
 
 $ git commit -am "commit"
 // If we have putted our all file into tacking area then we directly use this command to commit it rather than putting into staging area
-but if there is one file which is not tracked then this command will not work with it 
 
 rm -rf <file> only remove file and after you have to stage it manually
 git rm -rf <file> remove file as well as stage it
-
-git mv first.txt first_renameed_and_location_change.txt
-//rename or location change karva mate
 
 $ git rm --cached <filename>
 // To remove file from tracking area
 
 $ gir restore <filename>
-(use "git restore <file>..." to discard changes in working directory )
+(use "git restore <file>..." to discard changes in working directory)
 
-$ git restore --staged  -> unstage mathi resore kari stage ma lav va
+$ git restore --staged
  (use "git restore --staged <file>..." to unstage)
 
-$ git checkout (  --) <file name of (-f for all)> // NOTE :- This command do not work with .gitignore file
-// This command this file from last commit  
+$ git checkout <file name of (-f for all)> // NOTE :- This command do not work with .gitignore file
+// This command this file from list commit  
 
 other git command to see git commit logs
-see video 10 of code with harry
-
-git log
-
-git log -p	// entire change
-git log --stat //  presize change in short way
-git log --pretty=oneline //in one line commit name
-git log --pretty=short // auther and massage
-git log --pretty=full // auther and massage commit
-
-git log --since=2.days // last two days
-		2.weeks
-		2.months
-		2.years
-
-git log --pretty=format: "%h --%an" (website git scm useful option for git )
-
-git commit --amend // to edit previous commit
-wim editor 
-i -> to wite 
-esc :wq enter -> to quit 
 
 --------------------------------------------------------------------
-
- how to switch commit
-
- git checkout <commit id>
-
---------------------------------------------------------------------
-Work with github
+Work with git hub
 
 git remote
 git remote add <urvish> https://github.com/sojitraurvish/codewithurvish.git
@@ -186,7 +128,7 @@ ssh-keygen -t ed25519 -C "your_email@example.com"'
 
 # start the ssh-agent in the background
 $ eval "$(ssh-agent -s)"
-> Agent pid 59566 
+> Agent pid 59566
 
 
 //add shh key into the ssh agent
@@ -231,10 +173,10 @@ git checkout main
 git branch
 
 // to see last commit of all branch
-git branch -v
+git branch
 
 // to see marged branches
-git branch --merged
+git branch -merged
 
 // to see branches which are not merged 
 git branch --no-merged
